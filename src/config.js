@@ -1,0 +1,1 @@
+export const api = "https://sandystorm-api.herokuapp.com";
