@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;">
+    <img *ngIf="!image" src="../../../assets/images/analytics.jpg" class="card-img-top" alt="analytics">
+    <img *ngIf="image" [src]="image" class="card-img-top" alt="analytics">
+    <div class="card-body">
+        <h5 class="card-title">Profile</h5>
+        <p class="card-text">Analytics is the discovery, interpretation, and communication of meaningful patterns in
+            data. It also entails applying data patterns towards effective decision making. In other words, analytics
+            can be understood as the connective tissue between data and effective decision making within an
+            organization.</p>
+        <div class="form-group">
+            <input type="file" class="form-control-file btn btn-primary" id="profile" (change)="updateProfile($event)">
+        </div>
+    </div>
+</div>

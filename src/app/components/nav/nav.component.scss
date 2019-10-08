@@ -1,0 +1,25 @@
+.navbar {
+  & .navbar-nav.account {
+    float: right;
+    display: inline-block;
+    width: 100%;
+    & .nav-link {
+      float: right;
+      @media only screen and (max-width: 991px) {
+        float: none;
+      }
+    }
+    & .dropdown-menu {
+      right: 0;
+      left: 85% !important;
+      @media only screen and (max-width: 991px) {
+        width: 20%;
+      }
+    }
+    & .image {
+      position: absolute;
+      right: 110px;
+      border-radius: 20px;
+    }
+  }
+}

@@ -1,13 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { api } from "../../config.js";
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  updatedImage: string;
+  trigger = new EventEmitter<any>();
+  private messageSource = new BehaviorSubject('');
+  currentMessage = this.messageSource.asObservable();
 
   constructor(private http: HttpClient, private route: Router) { }
 
@@ -22,6 +26,11 @@ export class AuthService {
   logout() {
     localStorage.removeItem('main.token');
     this.route.navigate(['/']);
+  }
+
+  updateProfileImage(data) {
+    this.updatedImage = data;
+    this.messageSource.next(this.updatedImage);
   }
 
 }
