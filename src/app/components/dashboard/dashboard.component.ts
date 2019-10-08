@@ -9,9 +9,15 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  navSelected: string = '';
+
   constructor(private auth: AuthService, private route: Router) { }
 
   ngOnInit() {
+  }
+
+  select(data) {
+    this.navSelected = data;
   }
 
   logout() {
