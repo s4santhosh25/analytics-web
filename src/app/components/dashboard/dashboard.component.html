@@ -1,2 +1,30 @@
-<p>dashboard works!</p>
-<button (click)="logout()">Logout</button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/dashboard">Analytics</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item" [ngClass]="navSelected == 'Home' ? 'active':'' " (click)="select('Home')">
+                <a class="nav-link" routerLink="/dashboard">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" [ngClass]="navSelected == 'Features' ? 'active':'' " (click)="select('Features')">
+                <a class="nav-link">Features</a>
+            </li>
+            <li class="nav-item" [ngClass]="navSelected == 'Pricing' ? 'active':'' " (click)="select('Pricing')">
+                <a class="nav-link">Pricing</a>
+            </li>
+        </ul>
+        <div class="navbar-nav account">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                <a class="dropdown-item">Profile</a>
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
